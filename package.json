@@ -1,5 +1,5 @@
 {
-  "name": "uap-ref-impl-typescript",
+  "name": "@121cast/uap-js",
   "version": "1.0.0",
   "description": "Reference implementation of ua-parser.",
   "repository": {
