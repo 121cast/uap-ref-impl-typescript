@@ -1,6 +1,7 @@
 node_modules/
 test/
+tests_regex/
 *.tgz
 *.log
 .*
-
+src/
