@@ -1,1 +1,0 @@
-{"version":3,"file":"replaceMatches.js","sourceRoot":"","sources":["../src/replaceMatches.ts"],"names":[],"mappings":";;;AAAA,SAAgB,cAAc,CAAC,GAAW,EAAE,CAAmB;IAC3D,OAAO,GAAG;SACL,OAAO,CAAC,SAAS,EAAE,UAAU,GAAG,EAAE,CAAC;QAChC,OAAO,CAAC,CAAC,CAAC,CAAC,IAAI,EAAE,CAAC;IACtB,CAAC,CAAC;SACD,IAAI,EAAE,CAAC;AAChB,CAAC;AAND,wCAMC"}
