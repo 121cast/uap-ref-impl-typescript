@@ -1,4 +1,4 @@
-import { makeParser } from "../src/device";
+import { makeParser } from "../dist/device";
 
 describe("Device parser", function () {
   it("makeParser returns a function", function () {

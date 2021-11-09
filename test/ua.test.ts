@@ -1,4 +1,4 @@
-import { makeParser } from "../src/ua";
+import { makeParser } from "../dist/ua";
 
 describe("UA parser", () => {
   it("makeParser returns a function", () => {

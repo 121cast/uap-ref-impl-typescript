@@ -1,4 +1,4 @@
-import { makeParser } from "../src/os";
+import { makeParser } from "../dist/os";
 
 describe("OS parser", function () {
   it("makeParser returns a function", function () {
