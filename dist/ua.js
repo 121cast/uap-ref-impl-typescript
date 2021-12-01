@@ -25,9 +25,9 @@ function makeParser(obj) {
         return {
             userAgent: str,
             family: famRep ? famRep.replace("$1", m[1]) : m[1],
-            major: majorRep || m[2] || null,
-            minor: minorRep || m[3] || null,
-            patch: patchRep || m[4] || null
+            major: majorRep === '' ? '' : majorRep || m[2] || null,
+            minor: minorRep === '' ? '' : minorRep || m[3] || null,
+            patch: patchRep === '' ? '' : patchRep || m[4] || null
         };
     }
     return parser;

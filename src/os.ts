@@ -28,12 +28,12 @@ export function makeParser(obj: OsParsers) {
 
     return {
       userAgent: str,
-      family: (famRep ? replaceMatches(famRep, m) : m[1]) || "Other",
-      major: (majorRep ? replaceMatches(majorRep, m) : m[2]) || null,
-      minor: (minorRep ? replaceMatches(minorRep, m) : m[3]) || null,
-      patch: (patchRep ? replaceMatches(patchRep, m) : m[4]) || null,
+      family: famRep === '' ? '' : (famRep ? replaceMatches(famRep, m) : m[1]) || "Other",
+      major: majorRep === '' ? '' : (majorRep ? replaceMatches(majorRep, m) : m[2]) || null,
+      minor: minorRep === '' ? '' : (minorRep ? replaceMatches(minorRep, m) : m[3]) || null,
+      patch: patchRep === '' ? '' : (patchRep ? replaceMatches(patchRep, m) : m[4]) || null,
       patchMinor:
-        (patchMinorRep ? replaceMatches(patchMinorRep, m) : m[5]) || null,
+      patchMinorRep === '' ? '' : (patchMinorRep ? replaceMatches(patchMinorRep, m) : m[5]) || null,
     };
   }
 

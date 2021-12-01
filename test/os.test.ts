@@ -48,4 +48,21 @@ describe("OS parser", function () {
     expect(os?.minor).toBe("b");
     expect(os?.patch).toBe("c");
   });
+
+  it("Parser returns empty string if replacement is empty string", function () {
+    const parse = makeParser({
+      regex: "(foobar)",
+      os_replacement: "",
+      os_v1_replacement: "",
+      os_v2_replacement: "",
+      os_v3_replacement: "",
+      os_v4_replacement: "",
+    });
+
+    const os = parse("foobar");
+    expect(os?.family).toBe("");
+    expect(os?.major).toBe("");
+    expect(os?.minor).toBe("");
+    expect(os?.patch).toBe("");
+  });
 });

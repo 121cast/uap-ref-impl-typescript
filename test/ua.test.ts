@@ -45,4 +45,20 @@ describe("UA parser", () => {
     expect(ua?.minor).toBe("b");
     expect(ua?.patch).toBe("c");
   });
+
+  it("Parser returns empty string if replacement is empty string", function () {
+    const parse = makeParser({
+      regex: "(foobar)",
+      family_replacement: "foobar",
+      v1_replacement: "",
+      v2_replacement: "",
+      v3_replacement: "",
+    });
+
+    const ua = parse("foobar");
+    expect(ua?.family).toBe("foobar");
+    expect(ua?.major).toBe("");
+    expect(ua?.minor).toBe("");
+    expect(ua?.patch).toBe("");
+  });
 });

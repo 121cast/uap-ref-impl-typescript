@@ -27,11 +27,11 @@ function makeParser(obj) {
         }
         return {
             userAgent: str,
-            family: (famRep ? (0, replaceMatches_1.replaceMatches)(famRep, m) : m[1]) || "Other",
-            major: (majorRep ? (0, replaceMatches_1.replaceMatches)(majorRep, m) : m[2]) || null,
-            minor: (minorRep ? (0, replaceMatches_1.replaceMatches)(minorRep, m) : m[3]) || null,
-            patch: (patchRep ? (0, replaceMatches_1.replaceMatches)(patchRep, m) : m[4]) || null,
-            patchMinor: (patchMinorRep ? (0, replaceMatches_1.replaceMatches)(patchMinorRep, m) : m[5]) || null
+            family: famRep === '' ? '' : (famRep ? (0, replaceMatches_1.replaceMatches)(famRep, m) : m[1]) || "Other",
+            major: majorRep === '' ? '' : (majorRep ? (0, replaceMatches_1.replaceMatches)(majorRep, m) : m[2]) || null,
+            minor: minorRep === '' ? '' : (minorRep ? (0, replaceMatches_1.replaceMatches)(minorRep, m) : m[3]) || null,
+            patch: patchRep === '' ? '' : (patchRep ? (0, replaceMatches_1.replaceMatches)(patchRep, m) : m[4]) || null,
+            patchMinor: patchMinorRep === '' ? '' : (patchMinorRep ? (0, replaceMatches_1.replaceMatches)(patchMinorRep, m) : m[5]) || null
         };
     }
     return parser;

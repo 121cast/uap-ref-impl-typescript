@@ -23,9 +23,9 @@ function makeParser(obj) {
         }
         return {
             userAgent: str,
-            family: (deviceRep ? (0, replaceMatches_1.replaceMatches)(deviceRep, m) : m[1]) || "Other",
-            brand: (brandRep ? (0, replaceMatches_1.replaceMatches)(brandRep, m) : null) || null,
-            model: (modelRep ? (0, replaceMatches_1.replaceMatches)(modelRep, m) : m[1]) || null
+            family: deviceRep === '' ? '' : (deviceRep ? (0, replaceMatches_1.replaceMatches)(deviceRep, m) : m[1]) || "Other",
+            brand: brandRep === '' ? '' : (brandRep ? (0, replaceMatches_1.replaceMatches)(brandRep, m) : null) || null,
+            model: modelRep === '' ? '' : (modelRep ? (0, replaceMatches_1.replaceMatches)(modelRep, m) : m[1]) || null
         };
     }
     return parser;

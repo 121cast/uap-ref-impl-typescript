@@ -33,4 +33,18 @@ describe("Device parser", function () {
     expect(device?.brand).toBe("bar");
     expect(device?.model).toBe("foo");
   });
+
+  it("Parser returns empty string if replacement is empty string", function () {
+    const parse = makeParser({
+      regex: "(foobar)",
+      device_replacement: "",
+      brand_replacement: "",
+      model_replacement: "",
+    });
+
+    const device = parse("foobar");
+    expect(device?.family).toBe("");
+    expect(device?.brand).toBe("");
+    expect(device?.model).toBe("");
+  });
 });
