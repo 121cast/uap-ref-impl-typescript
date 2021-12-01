@@ -5,12 +5,18 @@ import parser from "../dist/parser";
 
 const uaparser = parser(readYAML("./regexes.yaml"));
 
-function readYAML<T extends UserAgentTest | OsTest | DeviceTest>(
+function readYAML<T>(
   fileName: string
 ) {
   const file = path.join(__dirname, fileName);
   const data = fs.readFileSync(file, "utf8");
-  return YAML.parse(data) as TestYaml<T>;
+  return YAML.parse(data) as T;
+}
+
+function readTestsYAML<T extends UserAgentTest | OsTest | DeviceTest>(
+  fileName: string
+) {
+  return readYAML(fileName) as TestYaml<T>;
 }
 
 [
@@ -21,7 +27,7 @@ function readYAML<T extends UserAgentTest | OsTest | DeviceTest>(
   "./test_resources/podcasting_user_agent_strings.yaml",
 ].forEach((fileName) => {
   describe(fileName, () => {
-    const fixtures = readYAML<UserAgentTest>(fileName).test_cases;
+    const fixtures = readTestsYAML<UserAgentTest>(fileName).test_cases;
     fixtures.forEach((f) => {
       test.concurrent(f.user_agent_string, () => {
         const ua = uaparser.parse(f.user_agent_string).ua;
@@ -37,7 +43,7 @@ function readYAML<T extends UserAgentTest | OsTest | DeviceTest>(
 ["./test_os.yaml", "./test_resources/additional_os_tests.yaml"].forEach(
   (fileName) => {
     describe(fileName, () => {
-      const fixtures = readYAML<OsTest>(fileName).test_cases;
+      const fixtures = readTestsYAML<OsTest>(fileName).test_cases;
       fixtures.forEach((f) => {
         test.concurrent(f.user_agent_string, () => {
           const os = uaparser.parse(f.user_agent_string).os;
@@ -54,7 +60,7 @@ function readYAML<T extends UserAgentTest | OsTest | DeviceTest>(
 
 ["./test_device.yaml"].forEach((fileName) => {
   describe(fileName, () => {
-    const fixtures = readYAML<DeviceTest>(fileName).test_cases;
+    const fixtures = readTestsYAML<DeviceTest>(fileName).test_cases;
     fixtures.forEach((f) => {
       test.concurrent(f.user_agent_string, () => {
         const device = uaparser.parse(f.user_agent_string).device;
