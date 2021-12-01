@@ -47,9 +47,8 @@ export type OsOutput = {
 };
 
 export type DeviceOutput = {
-    userAgent: string;
-    family: string;
-    brand: string | null;
-    model: string | null;
-  };
-  
+  userAgent: string;
+  family: string;
+  brand: string | null;
+  model: string | null;
+};
