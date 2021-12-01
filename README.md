@@ -6,7 +6,7 @@ This is a fork of the UAParser Javascript library [uap-ref-impl](https://github.
 
 This fork handles replacement values of empty strings (`''`) differently to the `uap-ref-impl` as the [specification is ambigious about empty strings](https://github.com/ua-parser/uap-core/issues/510).
 
-This fork aligns with the C# implementation which carries a replacement value of empty strings (`''`) to the output, rather than treating it as a falsey value and falling back to the default value (usually `'Other'` or `null`).
+This fork aligns with the [C# implementation](https://github.com/ua-parser/uap-csharp) which carries a replacement value of empty strings (`''`) to the output, rather than treating it as a falsey value and falling back to the default value (usually `'Other'` or `null`).
 
 ### Install
 ```
